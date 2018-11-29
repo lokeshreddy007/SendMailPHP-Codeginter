@@ -6,7 +6,8 @@ CodeIgniter Web Application can send Mail using CodeIgniter Email Class using go
 *******************
 Using  Information
 *******************
-```
+
+```PHP
 //Load email library
 $this->load->library('email');
 //SMTP & mail configuration
