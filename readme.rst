@@ -1,70 +1,45 @@
 ###################
-What is CodeIgniter
+CodeIgniter Web Application can send Mail using CodeIgniter Email Class using google SMPT 
 ###################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
 
 *******************
-Release Information
+Using  Information
 *******************
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+//Load email library
+$this->load->library('email');
 
-**************************
-Changelog and New Features
-**************************
+//SMTP & mail configuration
+$config = array(
+'protocol' => 'smtp',
+'smtp_host' => 'ssl://smtp.googlemail.com',
+'smtp_port' => 465,
+'smtp_user' => 'user@gmail.com',
+'smtp_pass' => 'gmail_password',
+'mailtype' => 'html',
+'charset' => 'utf-8'
+);
+$this->email->initialize($config);
+$this->email->set_mailtype("html");
+$this->email->set_newline("\r\n");
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+//Email content
+$htmlContent = '<h1>Sending email via SMTP server</h1>';
+$htmlContent .= '<p>This email has sent via SMTP server from CodeIgniter application.</p>';
 
-*******************
-Server Requirements
-*******************
+$this->email->to('recipient@example.com');
+$this->email->from('sender@example.com','MyWebsite');
+$this->email->subject('How to send email via SMTP server in CodeIgniter');
+$this->email->message($htmlContent);
 
-PHP version 5.6 or newer is recommended.
+//Send email
+$this->email->send();
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+/////////////////////////////$this->load->library('encrypt');///////////to avoid spamming of mail////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-************
-Installation
-************
-
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
-
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+////CHANGE SETTINGS IN GOGLE ACCOUNTS/////
+////MY ACCOUNT>SIGNING IN TO GOOGLE(under sign in & security)/////
+////SWITCH OFF 2 STEP VERIFICATION/////
+////IN CONNECTED APPS N SITES>SWITCH ONN---"ALLOW LESS SECURE APPS"----/////
