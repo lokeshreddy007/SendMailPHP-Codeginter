@@ -6,10 +6,9 @@ CodeIgniter Web Application can send Mail using CodeIgniter Email Class using go
 *******************
 Using  Information
 *******************
-
+```
 //Load email library
 $this->load->library('email');
-
 //SMTP & mail configuration
 $config = array(
 'protocol' => 'smtp',
@@ -43,3 +42,4 @@ $this->email->send();
 ////MY ACCOUNT>SIGNING IN TO GOOGLE(under sign in & security)/////
 ////SWITCH OFF 2 STEP VERIFICATION/////
 ////IN CONNECTED APPS N SITES>SWITCH ONN---"ALLOW LESS SECURE APPS"----/////
+```
