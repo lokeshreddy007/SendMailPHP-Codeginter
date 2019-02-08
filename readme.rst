@@ -7,10 +7,15 @@ CodeIgniter Web Application can send Mail using CodeIgniter Email Class using go
 Using  Information
 *******************
 
-`
-//Load email library
+1. Load email library
+
+```php
 $this->load->library('email');
-//SMTP & mail configuration
+```
+
+2. SMTP & mail configuration
+
+```php
 $config = array(
 'protocol' => 'smtp',
 'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -20,27 +25,31 @@ $config = array(
 'mailtype' => 'html',
 'charset' => 'utf-8'
 );
+
 $this->email->initialize($config);
 $this->email->set_mailtype("html");
 $this->email->set_newline("\r\n");
+```
 
-//Email content
+3. Email content
+```php
 $htmlContent = '<h1>Sending email via SMTP server</h1>';
 $htmlContent .= '<p>This email has sent via SMTP server from CodeIgniter application.</p>';
-
 $this->email->to('recipient@example.com');
 $this->email->from('sender@example.com','MyWebsite');
 $this->email->subject('How to send email via SMTP server in CodeIgniter');
 $this->email->message($htmlContent);
+```
 
-//Send email
+4. Send email
+```php
 $this->email->send();
-
-/////////////////////////////$this->load->library('encrypt');///////////to avoid spamming of mail////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-////CHANGE SETTINGS IN GOGLE ACCOUNTS/////
-////MY ACCOUNT>SIGNING IN TO GOOGLE(under sign in & security)/////
-////SWITCH OFF 2 STEP VERIFICATION/////
-////IN CONNECTED APPS N SITES>SWITCH ONN---"ALLOW LESS SECURE APPS"----/////
-`
+```
+5.to avoid spamming of mail
+```php
+ $this->load->library('encrypt');
+ ```
+ 6.  CHANGE SETTINGS IN GOGLE ACCOUNTS  
+MY ACCOUNT>SIGNING IN TO GOOGLE(under sign in & security)
+SWITCH OFF 2 STEP VERIFICATION
+IN CONNECTED APPS N SITES>SWITCH ONN---"ALLOW LESS SECURE APPS"
