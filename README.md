@@ -12,13 +12,21 @@ Using  Information
 2 . SMTP & mail configuration
 
 `$config = array(`
+
     `'protocol' => 'smtp',`
+
     `'smtp_host' => 'ssl://smtp.googlemail.com',`
+
     `'smtp_port' => 465,`
+
     `'smtp_user' => 'user@gmail.com',`
+
     `'smtp_pass' => 'gmail_password',`
+
     `'mailtype' => 'html',`
-    `'charset' => 'utf-8'`
+
+    'charset' => 'utf-8'
+
 `);`
 
 `$this->email->initialize($config);`
