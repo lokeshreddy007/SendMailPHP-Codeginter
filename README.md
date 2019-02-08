@@ -7,25 +7,25 @@ Using  Information
 
 1 . Load email library
 
-$this->load->library('email');
+`$this->load->library('email');`
 
 2 . SMTP & mail configuration
 
-$config = array(
-    'protocol' => 'smtp',
-    'smtp_host' => 'ssl://smtp.googlemail.com',
-    'smtp_port' => 465,
-    'smtp_user' => 'user@gmail.com',
-    'smtp_pass' => 'gmail_password',
-    'mailtype' => 'html',
-    'charset' => 'utf-8'
-);
+`$config = array(`
+    `'protocol' => 'smtp',`
+    `'smtp_host' => 'ssl://smtp.googlemail.com',`
+    `'smtp_port' => 465,`
+    `'smtp_user' => 'user@gmail.com',`
+    `'smtp_pass' => 'gmail_password',`
+    `'mailtype' => 'html',`
+    `'charset' => 'utf-8'`
+`);`
 
-$this->email->initialize($config);
+`$this->email->initialize($config);`
 
-$this->email->set_mailtype("html");
+`$this->email->set_mailtype("html");`
 
-$this->email->set_newline("\r\n");
+`$this->email->set_newline("\r\n");`
 
 3 . Email content
 
@@ -49,12 +49,12 @@ $this->email->set_newline("\r\n");
 `$this->email->send();`
 
 
-5.to avoid spamming of mail
+5 . to avoid spamming of mail
 
 
  `$this->load->library('encrypt');`
 
- ``
+
  6 .  CHANGE SETTINGS IN GOGLE ACCOUNTS  
 
 MY ACCOUNT>SIGNING IN TO GOOGLE(under sign in & security)
