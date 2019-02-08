@@ -9,14 +9,15 @@ Using  Information
 
 1. Load email library
 
-```
+```php
+
 $this->load->library('email');
 
 ```
 
 2. SMTP & mail configuration
 
-```
+```php
 
 $config = array(
     'protocol' => 'smtp',
@@ -37,7 +38,8 @@ $this->email->set_newline("\r\n");
 ```
 
 3. Email content
-```
+
+```php
 $htmlContent = '<h1>Sending email via SMTP server</h1>';
 
 $htmlContent .= '<p>This email has sent via SMTP server from CodeIgniter application.</p>';
@@ -54,13 +56,13 @@ $this->email->message($htmlContent);
 
 4. Send email
 
-```
+```php
 $this->email->send();
 
 ```
 5.to avoid spamming of mail
 
-```
+```php
  $this->load->library('encrypt');
 
  ```
